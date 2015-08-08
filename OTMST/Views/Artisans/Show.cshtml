@@ -1,0 +1,187 @@
+﻿@model OTMST.Models.tblOTMST_Artisans
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .col-xs-6 {
+        padding: 2px 2px 2px 2px;
+    }
+
+    .col-md-4 {
+        padding: 4px 4px 4px 4px;
+    }
+
+    .col-lg-3 {
+        padding: 8px 8px 8px 8px;
+    }
+
+    /* freetile */
+    .freetile {
+        display: block;
+        opacity: 1;
+        text-align: center;
+        list-style-type: none;
+        background-color: #fff;
+        float: left;
+        cursor: pointer;
+        width: 316px;
+        padding: 8px 8px 8px 8px;
+        margin: 8px 8px 8px 8px;
+        border: 1px solid #dedede;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    /** {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }*/
+</style>
+
+<link rel="stylesheet" href="~/Scripts/prettyPhoto_compressed_3.1.6/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="~/Scripts/prettyPhoto_compressed_3.1.6/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="~/Scripts/freetile.min.js"></script>
+<script type="text/javascript" src="~/Scripts/freetile.init.js"></script>
+
+
+<div style="margin:4px 0px 0px 0px;">
+    @Html.ActionLink(" Artisan Catalog", "Index", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md glyphicon glyphicon-th-large me" })
+    @Html.ActionLink(" List of Artisans", "List", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md  glyphicon glyphicon-th-list me" })
+</div>
+
+<h2>
+    @Html.DisplayFor(model => model.FirstName)&nbsp;@Html.DisplayFor(model => model.LastName)
+
+    @if (Model.BusinessName != null && Model.BusinessName.CompareTo("") > 0)
+    {
+        <span>,&nbsp;@Model.BusinessName</span>
+    }
+</h2>
+<div class="row">
+    <div class="col-xs-3">
+        @if (Model.PageImage != null && Model.PageImage.CompareTo("") > 0)
+        {
+            <img src="~/Content/Images/ArtisanPage/@Model.PageImage" alt="IMAGES" width="250" class="img-responsive" />
+        }
+    </div>
+    <div class="col-xs-9">
+        <div>
+            <div class="lead">
+                <strong>Tour stop #&nbsp;</strong> @Html.DisplayFor(model => model.TourStop)
+                :&nbsp;
+                @{
+                    int stop = Model.TourStop;
+                    switch (stop)
+                    {
+                        case 1:
+                            <a href="https://www.google.com/maps/place/1469+Lloyd+Rd,+Summit+Point,+WV+25446/39.24044,-77.9252572,17z/data=!3m1!4b1!4m2!3m1!1s0x89b60763207f7e4f:0x8b15c68edcefe190"
+                               class="fa-map-marker" target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 1469 Lloyd Road, Charles Town, WV</b></a>
+                            break;
+                        case 2:
+                        <a href="https://www.google.com/maps/place/607+S+Samuel+St,+Charles+Town,+WV+25414/39.2841899,-77.8555965,17z/data=!3m1!4b1!4m2!3m1!1s0x89b6016a6a847b2b:0x31eae4f1d18aac07"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 607 S Samuel St, Charles Town, WV</b></a>
+                            break;
+                        case 3:
+                        <a href="https://www.google.com/maps/place/302+N+Mildred+St,+Charles+Town,+WV+25414/39.29186,-77.858759,17z/data=!3m1!4b1!4m2!3m1!1s0x89b6016d384582ad:0x95d5609dfbb3fb3b"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 302 N Mildred St, Charles Town, WV</b></a>
+                            break;
+                        case 4:
+                        <a href="https://www.google.com/maps/place/272+Mason+Farm+Dr,+Kearneysville,+WV+25430/39.307989,-77.9862349,17z/data=!3m1!4b1!4m2!3m1!1s0x89b5fee538ecddc7:0xe3b09899be8f2d1"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 272 Mason Farm Drive, Kearneysville, WV</b></a>
+                            break;
+                        case 5:
+                        <a href="https://www.google.com/maps/place/5210+Paynes+Ford+Rd,+Kearneysville,+WV+25430/39.369405,-77.939082,17z/data=!3m1!4b1!4m2!3m1!1s0x89ca0019e7773641:0xcbf07fcb5d7e3df"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 5210 Paynes Ford Road, Kearneysville, WV</b></a>
+                            break;
+                        case 6:
+                        <a href="https://www.google.com/maps/place/2533+Warm+Springs+Rd,+Shenandoah+Junction,+WV+25442/39.387094,-77.863971,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fef5eaa02ee5:0x4984f96f8c64b181"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 2533 Warm Springs Rd, Shenandoah Junction, WV</b></a>
+                            break;
+                        case 7:
+                        <a href="https://www.google.com/maps/place/251+Southwood+Dr,+Kearneysville,+WV+25430/39.413559,-77.877736,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fed945c704c7:0x6bcac45a61063c01"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 251 Southwood Drive, Kearneysville, WV</b></a>
+                            break;
+                        case 8:
+                        <a href="https://www.google.com/maps/place/81+Hartzell+Dr,+Shepherdstown,+WV+25443/39.4274626,-77.815656,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fbf3428936b3:0x8d78b652de855ec0"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 81 Hartzell Drive, Shepherdstown, WV</b></a>
+                            break;
+                        case 9:
+                        <a href="https://www.google.com/maps/place/304+W+Washington+St,+Charles+Town,+WV+25414/39.4303901,-77.810142,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fb8d90f8351d:0x676012b144add8e5"
+                           target="_blank"><img src="~/Content/Images/Icons/map-7.png" height="20" /><b> 304 W Washington St, Shepherdstown, WV</b></a>
+                            break;
+                        default:
+                            break;
+                    }
+}
+            </div>
+            <div class="lead">
+                <strong>Phone:</strong> @Html.DisplayFor(model => model.Phone)
+            </div>
+            @if (Model.Email != null && Model.Email.CompareTo("") > 0)
+            {
+                <div class="lead">
+                    <strong>Email:</strong> @Html.DisplayFor(model => model.Email)
+                </div>
+            }
+            @if (Model.Website != null && Model.Website.CompareTo("") > 0)
+            {
+                <div class="lead">
+                    <strong>Website:</strong><a href="http://@Model.Website" target="_blank">@Model.Website</a><br />
+                </div>
+            }
+            <div class="lead fa-italic">
+                @Html.Raw(@Model.PageStatement)
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div id="container">
+    @{
+        if (Model.Images != null)
+        {
+            int num = 0;
+            foreach (var image in Model.Images)
+            {
+                if (!image.ToString().Contains("Thumbs.db"))
+                {
+                    num += 1;
+                    if (num % 4 == 1)
+                    {
+                    }
+                    <div>
+                        <a href="@Url.Content(image)" rel="prettyPhoto[pp_gal]">
+                            <img src="@Url.Content(image)" width="300" alt="" class="freetile img-responsive" />
+                        </a>
+                    </div>
+                }
+            }
+        }
+    }
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $('#container').freetile();
+
+        $("a[rel^='prettyPhoto']").prettyPhoto(
+            {
+                overlay_gallery: false,
+                social_tools: ''
+            });
+
+    });
+</script>
+

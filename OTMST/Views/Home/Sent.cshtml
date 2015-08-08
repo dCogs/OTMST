@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Sent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="lead">
+    Thanks for the email! We'll be in touch soon.
+    <br /><br />
+    <p>
+        @Html.ActionLink("Return to Home page", "Index", new { controller = "Home" }, new { @class = "btn btn-primary btn-lg" })
+    </p>
+</div>
