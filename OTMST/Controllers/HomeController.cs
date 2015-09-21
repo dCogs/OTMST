@@ -72,5 +72,24 @@ namespace OTMST.Controllers
             return View(model);
         }
 
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            if (!filterContext.ExceptionHandled)
+            {
+                string controller = filterContext.RouteData.Values["controller"].ToString();
+                string action = filterContext.RouteData.Values["action"].ToString();
+                Exception ex = filterContext.Exception;
+                //do something with these details here
+                RedirectToAction("Error", "Home");
+            }
+        }
+
+        public ActionResult Error()
+        {
+            return View();
+            //return RedirectToAction("Error", "Home");
+        }
+
+
     }
 }

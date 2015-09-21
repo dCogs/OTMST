@@ -204,6 +204,8 @@
   <ItemGroup>
     <Content Include="Content\2015\2015 group photo.jpg" />
     <Content Include="Content\2015\2015DirectionsFromBrochure.jpg" />
+    <Content Include="Content\2015\2015Map2.jpg" />
+    <Content Include="Content\2015\2015Map2.png" />
     <Content Include="Content\2015\SummerPreview.jpg" />
     <Content Include="Content\2015\SummerPreview.png" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -372,7 +374,9 @@
     <Content Include="Content\font-awesome-4.3.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome-4.3.0\fonts\FontAwesome.otf" />
     <Content Include="Content\2015\SummerTourRackCard_Proof3.pdf" />
-    <None Include="connections.config" />
+    <None Include="connections.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Content\2015\2015Brochure.pdf" />
     <Content Include="ClearCache.ashx" />
     <None Include="Properties\PublishProfiles\danielcogswell.com - FTP.pubxml" />
@@ -421,9 +425,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
+    <Content Include="Views\Home\Error.cshtml" />
+    <None Include="Web.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
