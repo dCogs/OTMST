@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    2015 Tour Map & Directions
+</h2>
+<style type="text/css">
+  /*html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }*/
+  #map-canvas { height: 100% }
+</style>
+
+@*<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAtZn4vi9RXiCTPkN7eHjE9RSeNH-GyytdGZ_sId1Tp8tZND1vZBSABG4OJnWkRQct2tE5Ax1w4Csexg"
+        type="text/javascript"></script>
+<script type="text/javascript">
+        window.onload = initialize;
+        function initialize() {
+            var map = new GMap2(document.getElementById("map_canvas"));
+            map.setCenter(new GLatLng(39.3862241, -77.8631438), 11);
+            map.addControl(new GSmallMapControl());
+            map.addControl(new GMapTypeControl());
+
+            // Create a base icon for all of our markers that specifies the
+            // shadow, icon dimensions, etc.
+            var baseIcon = new GIcon(G_DEFAULT_ICON);
+            baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+            baseIcon.iconSize = new GSize(20, 34);
+            baseIcon.shadowSize = new GSize(37, 34);
+            baseIcon.iconAnchor = new GPoint(9, 34);
+            baseIcon.infoWindowAnchor = new GPoint(9, 2);
+
+            // Creates a marker whose info window displays the letter corresponding
+            // to the given index.
+            function createMarker(point, index, openText, combinedStop) {
+                // Create a lettered icon for this point using our icon class
+                //var letter = String.fromCharCode("A".charCodeAt(0) + index);
+                var letter = String(index + 1);
+                var letteredIcon = new GIcon(baseIcon);
+                letteredIcon.image = "Content/Images/MapIcons/marker" + letter + ".png";
+                // Set up our GMarkerOptions object
+                markerOptions = { icon: letteredIcon };
+                var marker = new GMarker(point, markerOptions);
+                //GEvent.addListener(marker, "click", function () {
+                //    if (combinedStop == "Y") {
+                //        marker.openInfoWindowHtml("<div style='Width:300px; padding-bottom:8px'><br>" + openText + "</div");
+                //    }
+                //    else { marker.openInfoWindowHtml("<div style='Width:300px; padding-bottom:8px'>Stop <b>" + letter + "</b>:<br>" + openText + "</div"); }
+                //});
+                return marker;
+
+
+                marker.info = new google.maps.InfoWindow({
+                    content: "<div style='Width:300px; padding-bottom:8px'><br>" + openText + "</div>"
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    marker.info.open(map, marker);
+                });
+
+                return marker;
+
+
+            }
+
+            //            var latlng = new GLatLng(39.454851, -77.81112);
+            //            map.addOverlay(createMarker(latlng, 8, "PAINTINGS & TILE CREATIONS &#149; MIXED MEDIA WALL PIECES &#149; SILVER JEWELRY"));
+            var latlng = new GLatLng(39.4303863, -77.8099633);
+            map.addOverlay(createMarker(latlng, 7, "STAINED GLASS &#149; PAINTED FOLK ART FIGURES"));
+            var latlng = new GLatLng(39.401341, -77.872982);
+            map.addOverlay(createMarker(latlng, 6, "BLACKSMITHING &#149; WOOD CARVINGS"));
+            var latlng = new GLatLng(39.3862241, -77.8631438);
+            map.addOverlay(createMarker(latlng, 5, "WOOD FIRED POTTERY"));
+            var latlng = new GLatLng(39.3696583, -77.9338031);
+            map.addOverlay(createMarker(latlng, 4, "POTTERY &#149; HAND-HEWN WOODEN BOWLS"));
+            var latlng = new GLatLng(39.310029, -77.98626839);
+            map.addOverlay(createMarker(latlng, 3, "BASKETS &#149; TEDDY BEARS &#149; GLASS & SILVER JEWELRY"));
+            var latlng = new GLatLng(39.2404417, -77.9252799);
+            map.addOverlay(createMarker(latlng, 2, "POLYMER CLAY &#149; COLORED PENCIL DRAWINGS &#149; NEEDLE ARTISTRY"));
+            var latlng = new GLatLng(39.2719990, -77.9131180);
+            map.addOverlay(createMarker(latlng, 1, "WATERCOLOR PAINTINGS &#149; WOOD SCULPTURES &#149; WEARABLE ART"));
+            var latlng = new GLatLng(39.2917960, -77.8584593);
+            map.addOverlay(createMarker(latlng, 0, "CABINET MAKING"));
+        }
+</script>*@
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKOChB-vvSNy2XTmjNgVottArnGh0-uhg"></script>
+@*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>*@
+<script type="text/javascript">
+
+    //window.onload = initialize;
+
+    function initialize() {
+        //alert(document.getElementById('map-canvas').id);
+        var mapOptions = {
+            center: { lat: 39.3862241, lng: -77.8631438 },
+            zoom: 11
+        };
+        //alert(mapOptions.center.lat);
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var labels = '123456789';
+        var labelIndex = 0;
+
+        var stop1 = new google.maps.LatLng(39.24044, -77.9252572);
+        addMarker(stop1, map);
+        var stop2 = new google.maps.LatLng(39.2841899, -77.8555965);
+        addMarker(stop2, map);
+
+        // Adds a marker to the map.
+        function addMarker(location, map) {
+            // Add the marker at the clicked location, and add the next-available label
+            // from the array of alphabetical characters.
+            var marker = new google.maps.Marker({
+                position: location,
+                label: labels[labelIndex++ % labels.length],
+                map: map
+            });
+        }
+
+
+
+    }
+
+    //function loadScript() {
+    //    var script = document.createElement('script');
+    //    script.type = 'text/javascript';
+    //    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+    //        '&signed_in=true&callback=initialize';
+    //    document.body.appendChild(script);
+    //}
+
+    //window.onload = loadScript;
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+</script>
+
+
+
+<div style="width:700px; height:500px">
+    <div id="map-canvas"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+
+        //$('#map_canvas').gmap({
+        //    'center': new google.maps.LatLng(39.2917960, -77.8584593), 'callback': function () {
+        //        $('#map_canvas_1').gmap('displayDirections', { 'origin': new google.maps.LatLng(39.2917960, -77.8584593), 'destination': new google.maps.LatLng(42.345573, -72.098326), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions') }, function (success, result) {
+        //            if (success)
+        //                alert('Results found!');
+        //        });
+        //    }
+        //});
+
+        //$('#map_canvas').gmap().bind('init', function (evt, map) {
+        //    $('#map_canvas').gmap('addMarker', { /*id:'m_1',*/ 'position': '39.2917960, -77.8584593', 'bounds': true });
+        //});
+
+        //$('#map_canvas').gmap('displayDirections', { 'origin': 'Los Angeles, USA', 'destination': 'New York, USA', 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('panel') }, function (result, status) {
+        //    if (status === 'OK') {
+        //        alert('Results found!');
+        //    }
+        //});
+    });
+</script>

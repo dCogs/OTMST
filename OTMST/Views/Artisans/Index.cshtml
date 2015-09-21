@@ -1,0 +1,131 @@
+﻿@model IEnumerable<OTMST.Models.tblOTMST_Artisans>
+
+@{
+    ViewBag.Title = "Artisan Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .col-xs-6 {
+        padding: 2px 2px 2px 2px;
+    }
+
+    .col-md-4 {
+        padding: 3px 3px 3px 3px;
+    }
+
+    .col-lg-3 {
+        padding: 4px 4px 4px 4px;
+    }
+
+    .mediaImage {
+        glyph-orientation-horizontal: initial;
+        text-align: center;
+        color: blue;
+    }
+
+    .mediaInfo {
+        background-color: #FFE69A;
+        text-align: left;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 4px 4px 4px 4px;
+        overflow-y: auto;
+        font-size: 12px;
+    }
+
+    .artisanBox {
+        padding: 1% % 1% 1%;
+        text-align: center;
+        border: solid thin;
+        border-color: #B9A874;
+        cursor: pointer;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .alink {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .row {
+        margin-left: -16px;
+    }
+</style>
+
+
+<div style="margin:4px 0px 0px 0px;">
+    @Html.ActionLink(" ", "Index", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md glyphicon glyphicon-th-large" })
+    @Html.ActionLink(" ", "List", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md  glyphicon glyphicon-th-list" })
+</div>
+
+<div class="row">
+    @{
+        int num = 0;
+        foreach (var item in Model)
+        {
+            num += 1;
+            if (num % 4 == 1)
+            {
+                @:</div>
+            @:<div class="row">
+            }
+
+            string artisanBoxId = "art" + item.ArtisanID;
+            string mediaImageId = "mImg" + item.ArtisanID;
+            string picId = "aPic" + item.ArtisanID;
+            string mediaInfoId = "mInf" + item.ArtisanID;
+            string artisanLink = "~/Artisans/Show/" + item.LastName;
+
+            <div class="col-xs-6 col-md-4 col-lg-3 ">
+                <a href='@Href(artisanLink)'>
+                    <div class="artisanBox " id='@artisanBoxId'>
+                        <div class="mediaImage " id="@mediaImageId">
+                            <img alt="" src="~/Content/Images/Catalog/@item.CatalogImage" class="img-responsive" />
+                        </div>
+                        <div class="glyphicon glyphicon-link "><span class="alink"> @item.FirstName &nbsp; @item.LastName</span></div>
+                    </div>
+                </a>
+            </div>
+
+        }
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        //$('[data-toggle="tooltip"]').tooltip();
+        //$('#art1').on('click', function () {
+
+        // KEEP THE FOLLOWING. It does the icon that lets you click on it
+        // for more information, and then the camera that brings you back to the photo.
+        //
+        //$('[id^="art"]').on('click', function () {
+        //    var art = $(this).attr('id');
+        //    var lastNum = art.slice(-2);
+        //    if (isNaN(lastNum)) {
+        //        lastNum = art.slice(-1);
+        //    }
+        //    $('#mInf' + lastNum).toggle();
+        //    $('#mImg' + lastNum).toggle();
+        //    $('#aPic' + lastNum).toggle();
+        //    $('#mInf' + lastNum).css({ 'height': ($('#mImg' + lastNum).height() - 18 + 'px') });
+        //});
+        // END OF KEEP
+        //
+        // Here's the HTML that went with the above. Need to add back the at signs...
+        //<div class="col-xs-6 col-md-4 col-lg-3 ">
+        //<div class="artisanBox " id='artisanBoxId'>
+        //<div class="mediaImage " id="mediaImageId">
+        //<img src="~/Content/Images/info.gif" width="20" />
+        //<img alt="" src="~/Content/Images/item.CatalogImage" class="img-responsive" />
+        //</div>
+        //<img src="~/Content/Images/pic.gif" id='picId' width="20" style="display:none" />
+        //<div class="mediaInfo " id='mediaInfoId' style="display:none">
+        //item.ShortStatement
+        //</div>
+        //<div>
+        //<a href='Href(artisanLink)' class="glyphicon glyphicon-link "><span class="alink"> item.FirstName &nbsp; item.LastName</span></a>
+        //</div>
+        //</div>
+        //</div>
+    });
+</script>

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Over the Mountain Studio Tour</title>
+
+    @Styles.Render("~/Content/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @*Styles.RenderFormat("<script async src=\"{0}\"></script>", "~/Content/css")*@
+    @Scripts.RenderFormat("<script async src=\"{0}\"></script>", "~/bundles/modernizr")
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5565fdf476debdd1" async="async"></script>
+    <!-- keep jquery sync since it doesn't load in time for the freetile image galleries. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="masthead img-rounded" style="margin-left:16px;">
+            <div class="row" id="backgroundImage">
+                <div class="col-xs-5 pull-left " style="padding: 0px 0px 0px 8px; margin: 8px 8px 8px 8px;">
+                    <img src="~/Content/Images/2015/NewLogo3.png" alt="Over the Mountain Studio Tour logo" class="img-responsive " />
+                </div>
+                <div class="col-md-push-7 text-right pull-right" style="margin-right:12px">
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                    <div class="masthead1">
+                        Exceptional Arts &amp; Crafts
+                    </div>
+                    <div class="masthead2">
+                        Just 1 &#189; hours from Baltimore/Washington D.C.
+                        <br />
+                        November 14 &amp; 15, 2015 • 10am-5pm
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav nav-pills " style="margin:4px 0px 4px 4px;">
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index"
+                            && ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                            @Html.ActionLink("Home", "Index", "Home")
+                        </li>
+                        <li class="@((ViewContext.RouteData.Values["Action"].ToString() == "Index" || ViewContext.RouteData.Values["Action"].ToString() == "List")
+                            && ViewContext.RouteData.Values["Controller"].ToString() == "Artisans" ? "active" : "")">
+                            @Html.ActionLink("Artisans", "Index", "Artisans")
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Maps
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/Content/2015/2015Map2.png" target="_blank">Printable Map From Brochure</a></li>
+                                <li>
+                                    <a href="https://www.google.com/maps/place/Jefferson+County,+WV/39.3159146,-77.8771925,10z/data=!3m1!4b1!4m2!3m1!1s0x89ca07357151fad1:0x115ac065dcbfd481"
+                                       target="_blank">Directions to Jefferson County, WV</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com/maps/d/edit?mid=zi5k2DX40wxI.k0dQ2yK6OC6s&usp=sharing" target="_blank">Online map of tour stops</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="~/Content/2015/2015Brochure.pdf" target="_blank">Brochure</a></li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString().Contains("Index") && ViewContext.RouteData.Values["Controller"].ToString() == "SummerEvent" ? "active" : "")">@Html.ActionLink("Summer Show", "Index", "SummerEvent")</li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact"
+                            && ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                            @Html.ActionLink("Contact Us", "Contact", "Home")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="body-content" style="margin-top:-8px;">
+            @RenderBody()
+        </div>
+
+        <footer class="footer img-rounded" style="border: solid 1px; border-color: lightgray; margin:8px 0px 0px 0px;">
+            <div class="row">
+                <div class="col-xs-5">
+                    <p>&copy; @DateTime.Now.Year - Over the Mountain Studio Tour</p>
+                    <address>
+                        <strong>Over the Mountain Studio Tour</strong><br>
+                        272 Mason Farm Drive<br />
+                        Kearneysville, WV 25430<br />
+                        Phone: 800&#149;624&#149;0577 or 304&#149;725&#149;0567<br />
+                        Email: <a href="mailto:info@studiotourwv.org">info@studiotourwv.org</a>
+                    </address>
+                </div>
+                <div class="col-xs-7 ">
+                    <div class="row bottom">
+                        <div class="col-xs-4 ">
+                            <br /><br />
+                            <img src="~/Content/Images/Logos/JC_CVB_new.png" alt="Jefferson County CVB" class="img-responsive" />
+                        </div>
+                        <div class="col-xs-4">
+                            <br />
+                            <img src="~/Content/Images/Logos/JC_JAC_SPECIAL.png" width="100" alt="Jefferson Arts Council" class="img-responsive" />
+                        </div>
+                        <div class="col-xs-4 ">
+                            <br />
+                            <img src="~/Content/Images/Logos/JC_CC_new.png" alt="Jefferson County Chamber of Commerce" class="img-responsive" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31935149-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    @Scripts.RenderFormat("<script type=\"text/javascript\" async src=\"{0}\"></script>", "~/bundles/jquery")
+    @Scripts.RenderFormat("<script type=\"text/javascript\" async src=\"{0}\"></script>", "~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

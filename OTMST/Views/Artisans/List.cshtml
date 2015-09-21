@@ -1,0 +1,72 @@
+﻿@model IEnumerable<OTMST.Models.tblOTMST_Artisans>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .clickable-row {
+        cursor: pointer;
+        color: mediumblue;
+    }
+    .clickable-row:hover {
+        background-color: lightcyan;
+    }
+</style>
+
+<div style="margin:4px 0px 0px 0px;">
+    @Html.ActionLink(" ", "Index", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md glyphicon glyphicon-th-large" })
+    @Html.ActionLink(" ", "List", new { controller = "Artisans" }, new { @class = "btn btn-info btn-md  glyphicon glyphicon-th-list" })
+</div>
+<br />
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.ActionLink("Last Name", "List", new { sortOrder = ViewBag.LastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("First Name", "List", new { sortOrder = ViewBag.FirstNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Art", "List", new { sortOrder = ViewBag.ArtSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Tour Stop", "List", new { sortOrder = ViewBag.TourStopSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Business Name", "List", new { sortOrder = ViewBag.BusinessNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="clickable-row" onclick="location.href = '@(Url.Action("Show", "Artisans", new { searchString = item.LastName}))'">
+            @*<td>
+                @Html.ActionLink("Show", "Show", new { id = item.ArtisanID })
+            </td>*@
+            <td>
+                <div class="glyphicon glyphicon-link">&nbsp;</div>
+            </td>
+            <td>                
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Art)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourStop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessName)
+            </td>
+        </tr>
+    }
+
+</table>
+

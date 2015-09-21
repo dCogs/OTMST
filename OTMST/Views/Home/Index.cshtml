@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="img-rounded bigHead" style="background-color: #7664AC;color: white;">
+            &nbsp;Over the Mountain Studio Tour
+        </div>
+        <div class="bigHead" style="color:#7664AC; font-weight:bolder; margin-top:8px; margin-bottom:8px;">
+            NOVEMBER 14 & 15, 2015 • 10AM to 5PM
+        </div>
+        <p class="lead">
+            Get ready to spend an amazing autumn weekend visiting 9 studios chock-full of handmade wares by @Html.ActionLink("24 artisans", "Index", "Artisans").
+            Our studios are swept, newest work polished and tagged, snacks stacked and plated, and we’re ready to host you
+            for an amazing weekend of laughter and falling in love with the fruits of our labors.
+            @*<img src="~/Content/Images/Misc/frontPageArtisansParziale.png" class="img-responsive" align="left" style="margin:4px 4px 4px 4px" />*@
+            From fruit-covered majolica serving bowls to whimsical animal sculptures, unbelievably smooth polished wood
+            tables to subtle Appalachian-inspired stained glass scenes, we’re ready to show you the best of Jefferson County, WV.
+            Come be amazed!
+            <ul class="lead">
+                <li>24 Artisans, 9 Stops.</li>
+                <li>Each stop includes multiple artisans, live demonstrations, wares for sale, snacks and conversations.
+                @*<img src="~/Content/Images/Misc/frontPageArtisansFransen.png" align="right" class="img-responsive img-rounded" style="margin:4px 4px 4px 4px" />*@
+                </li>
+                <li>It’s Free! No cost for maps or brochures, or to visit any or all of the 9 stops.</li>
+                <li>This is a cooperative venture completely run by the juried member artisans, and a wonderful way to support local creative economy.</li>
+                <li>Always the second weekend of November.</li>
+            </ul>
+
+            <br />
+        </p>
+    </div>
+
+    <div class="col-lg-6">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+                <li data-target="#myCarousel" data-slide-to="8"></li>
+                @*<li data-target="#myCarousel" data-slide-to="8"></li>*@
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                @*<div class="item active">
+                        <a href="~/SummerEvent/">
+                            <img src="~/Content/Images/Carousel/carousel0a.jpg" alt="Over the Mountain Studio Summer Preview" class="img-responsive" style="margin-top:0px;" />
+                        </a>
+                    </div>*@
+
+                <div class="item active">
+                    <img src="~/Content/Images/Carousel/carousel2.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_8944b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_8872b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_9001c.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_9026b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_8875b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_8889b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_9021b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/Carousel/IMG_8836b.jpg" alt="Over the Mountain Studio Tour logo" class="img-responsive" style="margin-top:0px;" />
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+        <br />
+        <div class="img-rounded " style="background-color:#254856; color:white; margin-top:12px;padding:8px 8px 8px 8px;">
+            <div class="img-rounded masthead2" style="background-color:white; color:#254856; text-align:center;margin:8px 8px 8px 8px;">
+                How to visit the Over the Mountain Studio Tour
+            </div>
+            <ul class="lead">
+                <li>Look through the Artisan Gallery to decide which artisans and stops you’d like to see. Aim for demo times, or wander at your own pace.</li>
+                <li>
+                    Pick up the tour brochure at area businesses, at the first stop you visit, <a href="~/Content/2015/2015Brochure.pdf" target="_blank">download here</a>,
+                    or use the
+                    <a href="https://www.google.com/maps/d/edit?mid=zi5k2DX40wxI.k0dQ2yK6OC6s&usp=sharing" target="_blank">mobile map of the tour</a>
+                    to guide you. Follow the bright red arrows on the 'studio tour' signs.
+                </li>
+                <li>Visit away at your leisure! Each stop has multiple artisans, live demonstrations, snacks, and much to see, so get out there and enjoy yourselves.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        //$('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@*<div style="font-size:x-large;color:#7664AC; font-weight:bolder; text-align:left;">
+        2015 SUMMER PREVIEW
+    </div>
+    <div style="font-size:large;color:gray; font-weight:bolder; text-align:left;">
+        All Members Under One Roof!
+    </div>
+    <div style="font-size:medium; color:Black">
+        <ul>
+            <li>
+                Opening Reception: Friday, July 24, 5-7PM
+            </li>
+            <li>
+                Saturday, July 25, 10-5PM
+            </li>
+            <li>Sunday, July 26, 9-3PM</li>
+            <li>
+                <a href="https://www.google.com/maps/place/War+Memorial+Building/39.430726,-77.805691,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fb91d620d679:0xe334a8e04c572065" target="_blank">
+                    Downtown Shepherdstown, WV
+                </a>
+            </li>
+        </ul>
+        <p class="lead">
+            Celebrate summer and handmade during the Over the Mountain Studio Tour’s annual
+            Summer Preview Show in downtown <a href="https://www.google.com/maps/place/War+Memorial+Building/39.430726,-77.805691,17z/data=!3m1!4b1!4m2!3m1!1s0x89c9fb91d620d679:0xe334a8e04c572065" target="_blank">
+                Shepherdstown’s War Memorial Building
+            </a>,
+            where you can meet this year’s five newest juried members, and experience the fresh work from all members.
+            <br /><br />
+            <a href="~/SummerEvent/">Click for more information on the Summer Preview Show</a>.
+            <br />
+        </p>
+    </div>*@
